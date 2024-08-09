@@ -1,0 +1,20 @@
+.org 0x20a0
+.data
+
+.equ variabile,2
+var: .long 3
+
+
+.text
+main:
+
+cmpl $variabile, var
+jnc .label
+.return:
+movq $5, %rsi
+hlt
+
+.label:
+movq $1, %rcx
+jmp .return
+
